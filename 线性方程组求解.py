@@ -38,3 +38,28 @@ def solve_equation(A, b):
                 A_b[j] -= A_b[i] * A_b[j][i]
     # 返回解
     return A_b[:, -1]
+
+# 打印方程组
+def print_equation(A, b):
+    # 遍历所有的行
+    for i in range(len(A)):
+        # 遍历所有的列
+        for j in range(len(A)):
+            # 打印系数
+            print(A[i][j], end=' ')
+        # 打印等号
+        print('= ', end='')
+        # 打印常数项
+        print(b[i])
+# 打印解
+def print_solution(x):
+    # 遍历所有的解
+    for i in range(len(x)):
+        # 打印解
+        print('x' + str(i + 1) + ' = ', x[i])
+
+# 随机生成一个方程并求解
+A, b = generate_equation(5)
+print_equation(A, b)
+x = solve_equation(A, b)
+print_solution(x)
